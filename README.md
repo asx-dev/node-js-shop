@@ -1,1 +1,1 @@
-# node-js-shop
+# Nodejs E-commerce powered by Stripe
