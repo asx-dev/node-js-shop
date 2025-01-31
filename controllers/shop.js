@@ -1,6 +1,7 @@
 const Product = require("../models/product");
-
-const getAll = async (req, res) => {
+const config = require("../utils/config");
+const stripe = require("../models/stripe")(config.STRIPE_API_KEY);
+const getAllProducts = async (req, res) => {
   try {
     const products = await Product.find({});
     res.status(200).json(products);
@@ -19,4 +20,28 @@ const addNewProduct = async (req, res) => {
   }
 };
 
-module.exports = { getAll, addNewProduct };
+const checkoutSession = async (req, res) => {
+  try {
+    const items = req.body.items;
+    const lineItems = items.map((item) => ({
+      price: item.stripeId,
+      quantity: item.qty,
+    }));
+
+    const session = await stripe.checkout.sessions.create({
+      line_items: lineItems,
+      mode: "payment",
+      success_url: config.HOMEPAGE_URL,
+      cancel_url: config.HOMEPAGE_URL,
+    });
+
+    res.status(200).json({ url: session.url });
+  } catch (error) {
+    console.error("Checkout error:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while processing checkout." });
+  }
+};
+
+module.exports = { getAllProducts, addNewProduct, checkoutSession };
