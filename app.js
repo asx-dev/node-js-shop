@@ -7,7 +7,17 @@ const helmet = require("helmet");
 // Middlewares
 app.use(cors());
 app.use(express.json());
-app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'none'"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "https://trusted-source.com"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      imgSrc: ["'self'", "https://shop-api-wx9a.onrender.com"],
+      fontSrc: ["'self'", "https://trusted-font-source.com"],
+    },
+  })
+);
 // Routes
 app.use("/api/shop", shopRoutes);
 
