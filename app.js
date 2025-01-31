@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const shopRoutes = require("./routes/shopRoute");
-const helmet = require("helmet");
 
 // Middlewares
 app.use(cors());
