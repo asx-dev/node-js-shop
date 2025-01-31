@@ -8,4 +8,12 @@ const gameSchema = mongoose.Schema({
   stripeId: String,
 });
 
+gameSchema.set("toJSON", {
+  transform: (doc, ret) => {
+    ret.id = ret._id;
+    delete ret._id;
+    delete ret.__v;
+  },
+});
+
 module.exports = mongoose.model("Game", gameSchema);

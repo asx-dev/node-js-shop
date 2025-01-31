@@ -8,6 +8,6 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use("/api/shops", shopRoutes);
+app.use("/api/shop", shopRoutes);
 
 module.exports = app;
