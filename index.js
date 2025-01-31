@@ -7,7 +7,7 @@ const app = require("./app");
 const startServer = async () => {
   try {
     await dbConnect();
-    app.listen(config.PORT, () => {
+    app.listen(config.PORT || 8080, () => {
       logger.success(`Server running on port ${config.PORT}`);
     });
   } catch (error) {
