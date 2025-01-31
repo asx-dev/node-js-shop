@@ -1,6 +1,6 @@
 const Product = require("../models/product");
 const config = require("../utils/config");
-const stripe = require("../models/stripe")(config.STRIPE_API_KEY);
+const stripe = require("stripe")(config.STRIPE_API_KEY);
 const getAllProducts = async (req, res) => {
   try {
     const products = await Product.find({});
