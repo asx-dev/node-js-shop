@@ -1,21 +1,21 @@
-# 🛒 Node.js Ecommerce API
+# :shopping_cart: Node.js Ecommerce API
 
 This project is a RESTful API built with Node.js and Express, designed to power an e-commerce platform. It provides essential functionalities such as product listing, product creation, and checkout handling using Stripe for payment processing. The API is backed by MongoDB, with Mongoose as the ODM.
 
-## Features
+## :rocket: Features
 
 - **Product Management**: Fetch the list of products or create new ones.
 - **Secure Payments**: Handle online payments via Stripe API.
 - **Scalable Architecture**: Built with Express and MongoDB for high performance and scalability.
 
-## Technologies Used
+## :computer: Technologies Used
 
 - **Backend Framework**: Express
 - **Database**: MongoDB
 - **ODM**: Mongoose
 - **Payment Integration**: Stripe
 
-## API Endpoints
+## :lock: API Endpoints
 
 ### Get Product List
 
@@ -57,7 +57,7 @@ curl -X POST https://shop-api-wx9a.onrender.com/api/shop/checkout \
      -d '{ "token": "stripe-token", "amount": 4999 }'
 ```
 
-## Installation & Setup
+## :floppy_disk: Installation & Setup
 
 1. Clone the repository:
    ```sh
@@ -76,14 +76,13 @@ curl -X POST https://shop-api-wx9a.onrender.com/api/shop/checkout \
    HOMEPAGE_URL=your_homepage_url
    ```
 
-   > [!IMPORTANT]  
-   > The users are redirected to the HomePage after finishing the payment.
+   > **⚠️ Important:** Users are redirected to the homepage after completing the payment.
 
 4. Start the server:
    ```sh
    npm start
    ```
 
-## Deployment
+## :globe_with_meridians: Deployment
 
 This API is hosted on Render at: [https://shop-api-wx9a.onrender.com](https://shop-api-wx9a.onrender.com)
