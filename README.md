@@ -96,8 +96,8 @@ curl -X POST https://shop-api-wx9a.onrender.com/api/shop/checkout \
    HOMEPAGE_URL=your_homepage_url
    ```
 
-   > [!IMPORTANT]  
-   > Users are redirected to the homepage after completing the payment
+> [!IMPORTANT]  
+> Users are redirected to the homepage after completing the payment
 
 4. Start the server:
    ```sh
