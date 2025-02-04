@@ -107,3 +107,6 @@ curl -X POST https://shop-api-wx9a.onrender.com/api/shop/checkout \
 ## :globe_with_meridians: Deployment
 
 This API is hosted on Render at: [https://shop-api-wx9a.onrender.com](https://shop-api-wx9a.onrender.com/api/shop)
+
+> [!WARNING]  
+> The project uses a free instance that will be disconnected with inactivity, which can delay requests 50 seconds or more.
