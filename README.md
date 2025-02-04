@@ -2,6 +2,8 @@
 
 This project is a RESTful API built with Node.js and Express, designed to power an e-commerce platform. It provides essential functionalities such as product listing, product creation, and checkout handling using Stripe for payment processing. The API is backed by MongoDB, with Mongoose as the ODM.
 
+![screenshot](/screenshot.png)
+
 ## :rocket: Features
 
 - **Product Management**: Fetch the list of products or create new ones.
@@ -104,4 +106,4 @@ curl -X POST https://shop-api-wx9a.onrender.com/api/shop/checkout \
 
 ## :globe_with_meridians: Deployment
 
-This API is hosted on Render at: [https://shop-api-wx9a.onrender.com](https://shop-api-wx9a.onrender.com)
+This API is hosted on Render at: [https://shop-api-wx9a.onrender.com](https://shop-api-wx9a.onrender.com/api/shop)
