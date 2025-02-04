@@ -19,43 +19,61 @@ This project is a RESTful API built with Node.js and Express, designed to power 
 
 ### Get Product List
 
+**Request Example**
+
 ```sh
-# Endpoint Retrieves the list of available products
-GET /api/shop
-
-# Request Example
 curl -X GET https://shop-api-wx9a.onrender.com/api/shop
+```
 
-# Response Example
+**Response Example**
+
+```json
 [
-  { "id": "1", "name": "Product A", "price": 19.99 },
-  { "id": "2", "name": "Product B", "price": 29.99 }
+  {
+    "name": "Call Of Dutty",
+    "price": 50.99,
+    "image": "img-url.com",
+    "category": "Playstation",
+    "stripeId": "stripeId",
+    "id": "679cb4c3c4f0af3addd1804b"
+  }
 ]
 ```
 
 ### Create a Product
 
-```sh
-# Endpoint to add a new product to the database
-POST /api/shop
+**Request Example**
 
-# Request Example
+```sh
 curl -X POST https://shop-api-wx9a.onrender.com/api/shop \
      -H "Content-Type: application/json" \
-     -d '{ "name": "New Product", "price": 25.99 }'
+     -d '{
+    "name": "Spiderman 2",
+    "price": 58,
+    "image": "img-url.com",
+    "category": "Steam"
+}'
 ```
 
 ### Checkout (Stripe Payment)
 
-```sh
-# Endpoint to process payments using Stripe
-POST /api/shop/checkout
+**Request Example**
 
-# Request Example
+```sh
 curl -X POST https://shop-api-wx9a.onrender.com/api/shop/checkout \
      -H "Content-Type: application/json" \
-     -d '{ "token": "stripe-token", "amount": 4999 }'
+     -d '[{
+    "name": "Spiderman 2",
+    "price": 58,
+    "image": "img-url.com",
+    "category": "Steam",
+    "stripeId": "stripeId",
+    "qty": 1
+}]'
 ```
+
+> [!NOTE]  
+> The response from the server is a URL that need to be managed by the frontend to redirect the user to the Striple checkout page.
 
 ## :floppy_disk: Installation & Setup
 
@@ -76,7 +94,8 @@ curl -X POST https://shop-api-wx9a.onrender.com/api/shop/checkout \
    HOMEPAGE_URL=your_homepage_url
    ```
 
-   > **⚠️ Important:** Users are redirected to the homepage after completing the payment.
+   > [!IMPORTANT]  
+   > Users are redirected to the homepage after completing the payment
 
 4. Start the server:
    ```sh
